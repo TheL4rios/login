@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarme</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formRegister">
+    <ion-item>
+      <ion-label position="floating">Nombre(s) <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido(s) <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <ion-radio-group name="gener" value="Hombre">
+          <ion-list-header>
+            <ion-label>Género</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Hombre </ion-label>
+            <ion-radio slot="start" value="Hombre"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Mujer </ion-label>
+            <ion-radio slot="start" value="Mujer"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">RFC <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha de nacimiento</ion-label>
+      <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Foto <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text"></ion-input>
+      <ion-button (click)="tool.getPhoto()" fill="clear" shape="round">
+        <ion-icon slot="start" name="add"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Correo</ion-label>
+      <ion-input required type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña</ion-label>
+      <ion-input required type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repetir contraseña</ion-label>
+      <ion-input required type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" shape="round">
+      Guardar
+    </ion-button>
+  </form>
+</ion-content>
