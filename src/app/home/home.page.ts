@@ -3,7 +3,7 @@ import { User } from '../models/user';
 import { UserService } from '../services/user/user.service';
 import { ToolService } from '../services/tools/tool.service';
 import { Router, NavigationExtras } from '@angular/router';
-import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +22,8 @@ export class HomePage {
 
   initializeForm(): void {
     this.myForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
@@ -41,6 +41,8 @@ export class HomePage {
 
   accessToAccount(access: boolean, user: User): void {
     if (access) {
+      this.myForm.get('email').setValue('');
+      this.myForm.get('password').setValue('');
       this.viewProfile(user);
     } else {
       this.tool.showMessage('ATENCION!!', 'Email o contraseña incorrectos.');

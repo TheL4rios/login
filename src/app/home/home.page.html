@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="title">
       Inicio de sesión
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="myForm" (ngSubmit)="signIn()">
+  <ion-img src="assets/img/avatar.png" class="image"></ion-img>
+  <form [formGroup]="myForm" (ngSubmit)="signIn()" class="form">
     <ion-list>
       <ion-item>
         <ion-icon slot="start" name="mail"></ion-icon>

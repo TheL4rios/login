@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
-import { stringify } from 'querystring';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToolService {
 
-  constructor(private alert: AlertController, private fileChooser: FileChooser) { }
+  constructor(private alert: AlertController, private fileChooser: FileChooser, private toastController: ToastController) { }
 
   async showMessage(head: string, mess: string) {
     const al = await this.alert.create({
@@ -20,6 +20,14 @@ export class ToolService {
       }]
     });
     await al.present();
+  }
+
+  async showMessageToast(mess: string) {
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 2000
+    });
+    toast.present();
   }
 
   getPhoto(): string {
